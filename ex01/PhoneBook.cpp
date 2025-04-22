@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:44:50 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/04/22 20:29:19 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/04/22 21:29:14 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	display_ct_info(PhoneBook *phonebook)
 	int number;
 
 	(*phonebook).printContacts();
-	std::cout << "Please select the index for the specific contact";
+	std::cout << "Please select the index corresponding to the specific contact\n";
     std::getline(std::cin, input);
     try {
         number = std::stoi(input);
@@ -44,7 +44,8 @@ void	display_ct_info(PhoneBook *phonebook)
     }
 	if (number < 0 || number > 7 )
 		std::cout << "Invalid input. Please enter a valid index" << std::endl;
-	phonebook->printContact(number);
+	else
+		phonebook->printContact(number);
 }
 
 int	main()
@@ -55,7 +56,7 @@ int	main()
 	{
 		std::string in;
 		
-		std::cout << "Enter one of the fowloing commands:"<< std::endl;
+		std::cout << "Enter one of the following commands:"<< std::endl;
 		PRINT_GREEN("<ADD> - Add new contact");
 		PRINT_BLUE("<SEARCH> - Show the list of contacts");
 		PRINT_RED("<EXIT> - Exit the progam");

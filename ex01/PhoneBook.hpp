@@ -48,11 +48,8 @@ class Contact {
 		}
 
 		void printInfo() const{
-			const int columnWidth = 10;
-			std::cout << std::setw(columnWidth) << std::right << BOLD("     Index") \
-			<< "|" << std::setw(columnWidth) << std::right << BOLD("First Name") \
-			<< "|" << std::setw(columnWidth) << std::right << BOLD(" Last Name") \
-			<< "|" << std::setw(columnWidth) << std::right << BOLD(" Nick Name") << std::endl;	
+			std::cout << BOLD("Index -\t\t") << index << BOLD("\nFirst Name -\t") << firstName << BOLD("\nLast Name -\t") \
+			<< lastName << BOLD("\nNick Name -\t") << nickName << std::endl;	
 		}
 
 	private:
@@ -111,7 +108,10 @@ class PhoneBook {
 		}
 		
 		void printContact(size_t i) const {
-			contacts[i].print_info();
+			if (i < prints)
+				contacts[i].printInfo();
+			else
+				std::cout << "Invalid input. Please enter a valid index" << std::endl;
 		}
 
 	private:
