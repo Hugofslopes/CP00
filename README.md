@@ -7,4 +7,11 @@
 </p>
 
 ## Summary
-This is the first exercise I completed at 42 School using C++, which is an object-oriented language. Some rules are difrente, from 
+This is the first exercise I completed at 42 School using C++, which is an object-oriented language. Some rules are different from now on. We no longer have Norminette, which allows us to organize our code in different ways (so there is no need for functions to have a maximum of 25 lines or to declare variables before assigning values to them). From now on, we are allowed to use for loops, switch cases and ternary operators.
+
+## Ex00
+
+
+## Ex01
+
+## Ex02
