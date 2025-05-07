@@ -6,7 +6,7 @@
 #    By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 14:55:18 by hfilipe-          #+#    #+#              #
-#    Updated: 2025/05/07 12:13:27 by hfilipe-         ###   ########.fr        #
+#    Updated: 2025/05/07 14:17:04 by hfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@ CXX = c++
 INCLUDES = -I includes
 SRC_DIR = src
 OBJ_DIR = obj
-SRC = PhoneBook.cpp Contact.cpp main.cpp
+SRC = Account.cpp tests.cpp 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
-NAME = PhoneBook
+NAME = Account
 
 
 all: $(NAME)
