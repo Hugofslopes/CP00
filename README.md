@@ -11,7 +11,7 @@ This is the first exercise I completed at 42 School using C++, which is an objec
 
 <details>
 <summary><b>Ex00</b></summary>
-This is the first C++ exercise. The program should print the message inputted by the user in uppercase. If there are no arguments, it will print a predefined message. I applied a for loop and the ternary operator to make the code more concise. These two concepts were forbidden in the 42-School C programs. The ternary operator is similar to an if/else statement: <b><condition> ? <if true> : <if false></b>. The for loop is almost the same as a while loop, but on the same line, we can define the variable that will be the counter, specify the end condition and set the increment.
+This is the first C++ exercise. The program should print the message inputted by the user in uppercase. If there are no arguments, it will print a predefined message. I applied a for loop and the ternary operator to make the code more concise. These two concepts were forbidden in the 42-School C programs. The ternary operator is similar to an if/else statement: <b>< condition > ? < if true > : < if false ></b>. The for loop is almost the same as a while loop, but on the same line, we can define the variable that will be the counter, specify the end condition and set the increment.
 </details>
 
 <details>
@@ -23,8 +23,8 @@ This exercise aims to create a phone book that can hold 8 different contacts. Fr
 <summary><b>Ex02</b></summary>
 This is not a mandatory exercise, but it is quite interesting to do. We have already received the <b>.hpp</b> file, a <b>test.cpp</b> file and a log file. From this file we need to implement the methods in a <b>.cpp</b> file. Looking at the tests file we learn some new conceps:
 <ul>
-    <il>foreach: </b>
-    <il>vectors: </b>
-    <il>iterators: </b>
+    <il><b>foreach:</b> </li>
+    <il><b>vectors:</b> </li>
+    <il><b>iterators:</b> </li>
 </ul>
 </details>
