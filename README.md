@@ -10,7 +10,7 @@
 This is the first exercise I completed at 42 School using C++, which is an object-oriented language. Some rules are different from now on. We no longer have Norminette, which allows us to organize our code in different ways (so there is no need for functions to have a maximum of 25 lines or to declare variables before assigning values to them). From now on, we are allowed to use for loops, switch cases and ternary operators.
 
 <details>
-<summary><b>Ex00</b></summary>
+<summary><b>Ex00 - Megaphone </b></summary>
 <p align="center">
     <img src="https://github.com/user-attachments/assets/4a4e375f-6e97-4183-b146-522defda271e" height="200"/>
 </p>
@@ -26,7 +26,7 @@ The for loop is almost the same as a while loop, but on the same line, we can de
 </details>
 
 <details>
-<summary><b>Ex01</b></summary>
+<summary><b>Ex01 - Phone Book</b></summary>
 <p align="center">
     <img src="https://github.com/user-attachments/assets/316cc0a3-66cd-4e3c-b1dc-b39cc7a3aea3" height="200"/>
 </p>
@@ -34,7 +34,7 @@ This exercise aims to create a phone book that can hold 8 different contacts. Fr
 </details>
 
 <details>
-<summary><b>Ex02</b></summary>
+<summary><b>Ex02 - The Job of your Dreams</b></summary>
 <p align="center">
     <img src="https://github.com/user-attachments/assets/71057245-64c7-407b-96ca-68ebd314221a" height="200"/>
 </p>
