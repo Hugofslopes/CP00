@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:44:50 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/07 15:15:56 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:31:26 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void PhoneBook::add_contacts(PhoneBook *phonebook){
 	(*phonebook).setContact(contact);
 }
 
-void PhoneBook::display_ct_info(PhoneBook *phonebook)
-{
+void PhoneBook::display_ct_info(PhoneBook *phonebook){
 	std::string input;
 	int number;
 	if(phonebook->getNrContacts())

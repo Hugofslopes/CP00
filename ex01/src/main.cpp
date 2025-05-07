@@ -1,7 +1,6 @@
 # include "PhoneBook.hpp"
 
-int	main()
-{
+int	main(){
 	PhoneBook phonebook;
 	
 	while (1)
@@ -12,7 +11,10 @@ int	main()
 		PRINT_GREEN("<ADD> - Add new contact");
 		PRINT_BLUE("<SEARCH> - Show the list of contacts");
 		PRINT_RED("<EXIT> - Exit the progam");
-		std::getline(std::cin, in);
+		if (!std::getline(std::cin, in)){
+                std::cout << std::endl;
+                break;
+		}
 		if (in == "EXIT")
 			exit(0);
 		else if (in == "ADD")
