@@ -40,8 +40,9 @@ This exercise aims to create a phone book that can hold 8 different contacts. Fr
 </p>
 This is not a mandatory exercise, but it is quite interesting to do. We have already received the <b>.hpp</b> file, a <b>test.cpp</b> file and a log file. From this file we need to implement the methods in a <b>.cpp</b> file. Looking at the tests file we learn some new conceps:
 <ul>
-    <il><b>foreach:</b> </li>
-    <il><b>vectors:</b> </li>
-    <il><b>iterators:</b> </li>
+    <il><b>Foreach:</b> is a control statement that iterates over elements in a collection, such as arrays, lists, or other iterable data structures..</li>
+    <il><b>Vectors:</b> Are used to store a collection of elements. Similar to arrays but offer more flexibility. Unlike arrays, which have a fixed size, vectors can grow and shrink in size as needed so you can add or remove elements easily.
+ </li>
+    <il><b>Iterators: are objects or constructs that allow you to traverse through a collection of elements, without exposing the underlying details of the collection. They provide a standard way to access elements sequentially, typically one at a time.</b> </li>
 </ul>
 </details>
