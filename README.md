@@ -12,12 +12,12 @@ This is the first exercise I completed at 42 School using C++, which is an objec
 <details>
 <summary><b>Ex00</b></summary>
 This is the first C++ exercise. The program should print the message inputted by the user in uppercase. If there are no arguments, it will print a predefined message. I applied a for loop and the ternary operator to make the code more concise. These two concepts were forbidden in the 42-School C programs.<br>
-<blockquote>
 The ternary operator is similar to an if/else statement:<br> 
+<blockquote>
 <b>< condition > ? < if true > : < if false ></b>.<br>
 </blockquote>
-<blockquote>
 The for loop is almost the same as a while loop, but on the same line, we can define the variable that will be the counter, specify the end condition and set the increment. Ex:<br>
+<blockquote>
 <b>for (size_t i = 0; i < 10; i++)</b>
 </blockquote>
 </details>
