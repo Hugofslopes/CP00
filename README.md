@@ -12,7 +12,7 @@ This is the first exercise I completed at 42 School using C++, which is an objec
 <details>
 <summary><b>Ex00</b></summary>
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/4a4e375f-6e97-4183-b146-522defda271e"/>
+    <img src="https://github.com/user-attachments/assets/4a4e375f-6e97-4183-b146-522defda271e" height="200"/>
 </p>
 This is the first C++ exercise. The program should print the message inputted by the user in uppercase. If there are no arguments, it will print a predefined message. I applied a for loop and the ternary operator to make the code more concise. These two concepts were forbidden in the 42-School C programs.<br>
 The ternary operator is similar to an if/else statement:<br>
@@ -28,7 +28,7 @@ The for loop is almost the same as a while loop, but on the same line, we can de
 <details>
 <summary><b>Ex01</b></summary>
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/316cc0a3-66cd-4e3c-b1dc-b39cc7a3aea3"/>
+    <img src="https://github.com/user-attachments/assets/316cc0a3-66cd-4e3c-b1dc-b39cc7a3aea3" height="200"/>
 </p>
 This exercise aims to create a phone book that can hold 8 different contacts. From this, we can determine that two different <b>classes</b> will be implemented, each with its own <b>methods</b>. One class will be Contact and the other will be PhoneBook. The PhoneBook class will inherit from Contact and will contain an array of 8 contacts. Each class will have its own methods declared in the <b>.hpp</b> file and their implementations will be done in the corresponding <b>.cpp</b> file. We also have <b>constructors</b> that are special member functions that allow the creation of an object of a specified class.
 </details>
@@ -36,7 +36,7 @@ This exercise aims to create a phone book that can hold 8 different contacts. Fr
 <details>
 <summary><b>Ex02</b></summary>
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/71057245-64c7-407b-96ca-68ebd314221a"/>
+    <img src="https://github.com/user-attachments/assets/71057245-64c7-407b-96ca-68ebd314221a" height="200"/>
 </p>
 This is not a mandatory exercise, but it is quite interesting to do. We have already received the <b>.hpp</b> file, a <b>test.cpp</b> file and a log file. From this file we need to implement the methods in a <b>.cpp</b> file. Looking at the tests file we learn some new conceps:
 <ul>
