@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:44:50 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/07 15:31:26 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/08 14:18:15 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 void PhoneBook::setContact(const Contact& contact) {
 	nr_contacts++;
-	if (count < 8)
-	{
+	if (count < 8){
 		contacts[count] = contact;
 		contacts[count].index = count;
 		count++;
 	}
-	else
-	{
+	else{
 		count = 0;
 		contacts[count] = contact;
 		contacts[count].index = count;
@@ -30,8 +28,7 @@ void PhoneBook::setContact(const Contact& contact) {
 }
 
 void PhoneBook::printContacts() const {
-	if (nr_contacts >= 7)
-	{
+	if (nr_contacts > 7){
 		for (size_t i = 0; i < 8; i++)
 		{
 			if (i == 0)
@@ -39,13 +36,13 @@ void PhoneBook::printContacts() const {
 			contacts[i].display(); 
 		}
 	}
-	else
-	{
+	else{
 		for (size_t i = 0; i < nr_contacts; i++)
 		{
 			if (i == 0)
 				contacts[i].displayHeader(); 
 			contacts[i].display(); 
+			
 		}
 	}
 }
@@ -77,13 +74,12 @@ void PhoneBook::add_contacts(PhoneBook *phonebook){
 void PhoneBook::display_ct_info(PhoneBook *phonebook){
 	std::string input;
 	int number;
-	if(phonebook->getNrContacts())
-	{
+	if (phonebook->getNrContacts()){
 		(*phonebook).printContacts();
 		std::cout << "Please select the index corresponding to the specific contact\n";
 		std::getline(std::cin, input);
 		try {
-			number = std::stoi(input);
+			number = atoi(input.c_str());
 		} 
 		catch (const std::invalid_argument& e) {
 			std::cout << "Invalid input. Please enter a valid integer." << std::endl;

@@ -2,8 +2,8 @@
 #define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
 # include "Colors.hpp"
-#include <iomanip>
 
 class Contact {
 
@@ -15,7 +15,7 @@ class Contact {
 			lastName = lN;
 			nickName = nN;
 		}
-	
+
 		void display() const;
 		void displayHeader() const;
 		void printInfo() const;

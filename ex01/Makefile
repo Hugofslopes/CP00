@@ -6,11 +6,11 @@
 #    By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 14:55:18 by hfilipe-          #+#    #+#              #
-#    Updated: 2025/05/07 12:13:27 by hfilipe-         ###   ########.fr        #
+#    Updated: 2025/05/08 14:13:35 by hfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -ggdb
 STD98 = -std=c++98
 CXX = c++
 INCLUDES = -I includes
@@ -20,15 +20,18 @@ SRC = PhoneBook.cpp Contact.cpp main.cpp
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 NAME = PhoneBook
-
+DEPS = $(OBJS:.o=.d)
 
 all: $(NAME)
+
 $(NAME): $(OBJS)
-	$(CXX) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(FLAGS) $(STD98) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)
-	$(CXX) $(FLAGS) $(INCLUDES) -c $< -o $@
+	$(CXX) $(FLAGS) $(STD98) $(INCLUDES) -MMD -c $< -o $@
+
+-include $(DEPS)
 
 clean:
 	rm -rf $(OBJ_DIR)

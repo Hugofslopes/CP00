@@ -6,7 +6,7 @@
 #    By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 14:55:18 by hfilipe-          #+#    #+#              #
-#    Updated: 2025/04/22 15:59:33 by hfilipe-         ###   ########.fr        #
+#    Updated: 2025/05/08 14:13:36 by hfilipe-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ $(NAME):$(OBJT)
 	$(C++) $(FLAGS) $(OBJT) -o $(NAME) 
 
 %.o: %.cpp
-	$(C++) $(FLAGS) -c $< -o $@
+	$(C++) $(FLAGS) $(STD98) -c $< -o $@
 
 clean:
 	rm -f $(OBJT)
