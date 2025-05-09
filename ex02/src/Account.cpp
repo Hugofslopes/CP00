@@ -3,20 +3,22 @@
 #include <iomanip>
 #include <ctime>
 
-
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp(void) {
-    std::time_t now = std::time(nullptr);
-    std::tm *tm = std::localtime(&now);
-    std::cout << "["<< std::put_time(tm, "%Y%m%d_%H%M%S")<< "] ";
+    std::time_t now = std::time(0);
+    std::tm* tm_ptr = std::localtime(&now);
+
+    char buffer[20];
+    std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", tm_ptr);
+
+    std::cout << "[" << buffer << "] ";
 }
 
-Account::Account(int initial_deposit)
-    : _accountIndex(_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
+Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
     _nbAccounts++;
     _totalAmount += initial_deposit;
     _displayTimestamp();

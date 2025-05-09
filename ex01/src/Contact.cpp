@@ -5,8 +5,8 @@ std::string dS, int pH){
 	firstName = fN;
 	lastName = lN;
 	nickName = nN;
-	darkestSecret =dS;
-	phoneNumber =pH;
+	darkestSecret = dS;
+	phoneNumber = pH;
 }
 
 void Contact::display() const{

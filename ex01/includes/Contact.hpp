@@ -7,10 +7,11 @@
 
 class Contact {
 	public:
-		int	index;
+		int			index;
 		Contact(){}
 		Contact(std::string fN, std::string lN, std::string	nN,
 		std::string dS, int pH);
+		~Contact() {}
 
 		void display() const;
 		void displayHeader() const;
@@ -21,6 +22,6 @@ class Contact {
 		std::string	lastName;
 		std::string	nickName;
 		std::string	darkestSecret;
-		int phoneNumber;
+		int 		phoneNumber;
 };
 #endif

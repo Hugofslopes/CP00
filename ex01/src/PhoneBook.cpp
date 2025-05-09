@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:44:50 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/08 14:18:15 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:44:12 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void PhoneBook::add_contacts(PhoneBook *phonebook){
         } 
 		else {
             validInput = true;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
 	std::cout << "Enter the contact Darkest Secret" << std::endl;
@@ -96,8 +97,9 @@ void PhoneBook::add_contacts(PhoneBook *phonebook){
 }
 
 void PhoneBook::display_ct_info(PhoneBook *phonebook){
-	std::string input;
-	int number;
+	std::string	input;
+	int			number;
+
 	if (phonebook->getNrContacts()){
 		(*phonebook).printContacts();
 		std::cout << "Please select the index corresponding to the specific contact\n";

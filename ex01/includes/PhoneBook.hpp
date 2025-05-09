@@ -13,6 +13,7 @@
 class PhoneBook : public Contact {
     public:
         PhoneBook();
+        ~PhoneBook(){}
 
         void    setContact(const Contact& contact);
         void    printContacts() const;
