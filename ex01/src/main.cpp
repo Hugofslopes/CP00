@@ -8,20 +8,20 @@ int	main(){
 		std::string in;
 		
 		std::cout << "Enter one of the following commands:"<< std::endl;
-		PRINT_GREEN("<ADD> - Add new contact");
-		PRINT_BLUE("<SEARCH> - Show the list of contacts");
-		PRINT_RED("<EXIT> - Exit the progam");
+		std::cout << GREEN "<ADD> - Add new contact" RESET << std::endl;
+		std::cout << BLUE "<SEARCH> - Show the list of contacts" RESET << std::endl;
+		std::cout << RED "<EXIT> - Exit the progam" RESET << std::endl;
 		if (!std::getline(std::cin, in)){
                 std::cout << std::endl;
-                break;
+                break ;
 		}
 		if (in == "EXIT")
 			exit(0);
 		else if (in == "ADD")
-			phonebook.add_contacts(&phonebook);
+			phonebook.add_contacts();
 		else if (in == "SEARCH")
-			phonebook.display_ct_info(&phonebook);
+			phonebook.display_ct_info();
 		else
-			std::cout <<BOLD("				WRONG INPUT") << std::endl;
+			std::cerr << BOLD "				WRONG INPUT" RESET << std::endl;
 	}
 }

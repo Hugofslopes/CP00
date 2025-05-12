@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:44:50 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/09 16:44:12 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/12 15:48:56 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 PhoneBook::PhoneBook() : count(0), nr_contacts(0) {
         for (size_t i = 0; i < 8; i++) {
-            contacts[i] = Contact("", "", "", "", 0);
-            contacts[i].index = -1;
+            contacts[i] = Contact();
+            contacts[i].setIndex(-1);
         }
     }
+
+PhoneBook::~PhoneBook(){} 
 
 void PhoneBook::setContact(const Contact& contact) {
 	nr_contacts++;
 	if (count < 8){
 		contacts[count] = contact;
-		contacts[count].index = count;
+		contacts[count].setIndex(count);
 		count++;
 	}
 	else{
 		count = 0;
 		contacts[count] = contact;
-		contacts[count].index = count;
+		contacts[count].setIndex(count);
 		count++;
 	}
 }
@@ -54,67 +56,111 @@ void PhoneBook::printContacts() const {
 	}
 }
 
-void PhoneBook::printContact(size_t i) const {
-	if (i < nr_contacts)
-		contacts[i].printInfo();
-	else
-		std::cout << "Invalid input. Please enter a valid index" << std::endl;
-}
-
 int PhoneBook::getNrContacts()const{
 	return(nr_contacts);
 }
 
-void PhoneBook::add_contacts(PhoneBook *phonebook){
+void PhoneBook::add_contacts(){
 	
-	std::string name, lastName, nickName, darkestSecret;
-	int phoneNumber;
+	Contact n_contact;
+	std::string fN, lN,nN, dS;
+	int pN;
 	bool validInput = false;
 
-	std::cout << "Enter the contact Name" << std::endl;
-	std::getline(std::cin, name);
-	std::cout << "Enter the contact Last Name" << std::endl;
-	std::getline(std::cin, lastName);
-	std::cout << "Enter the contact Nickname" << std::endl;
-	std::getline(std::cin, nickName);
+	std::cout << std::endl << "Enter the contact " << BOLD "First Name" RESET << " :" << std::endl;
+	std::getline(std::cin, fN);
+	n_contact.check_input(fN);
+	n_contact.setFirstName(fN);
+
+	std::cout << "Enter the contact " << BOLD "Last Name" RESET << " :" << std::endl;
+	std::getline(std::cin, lN);
+	n_contact.check_input(lN);
+	n_contact.setLastName(lN);
+
+	std::cout << "Enter the contact "<< BOLD "Nick Name" RESET << " :" << std::endl;
+	std::getline(std::cin, nN);
+	n_contact.check_input(nN);
+	n_contact.setNickName(nN);
+
 	while (!validInput) {
-        std::cout << "Enter the contact Phone Number: " << std::endl;
-        std::cin >> phoneNumber;
-        if (std::cin.fail()) {
+        std::cout << "Enter the contact " << BOLD "Phone Number" RESET << " :"<< std::endl;
+        std::cin >> pN;
+		if (std::cin.eof()) {
+            break ;
+        }
+        else if (std::cin.fail()) {
+			validInput = false;
             std::cerr << "Invalid input. Please enter a valid phone number." << std::endl;
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        } 
+        }
+		else if (pN > 999999999) {
+			validInput = false;
+			std::cerr << "Invalid input. Please enter a valid phone number." << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else if (pN < 111111111)
+		{
+			validInput = false;
+			std::cerr << "Invalid input. Please enter a valid phone number." << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
 		else {
             validInput = true;
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
     }
-	std::cout << "Enter the contact Darkest Secret" << std::endl;
-	std::getline(std::cin, darkestSecret);
-	Contact contact(name, lastName, nickName, darkestSecret, phoneNumber);
-	(*phonebook).setContact(contact);
+	n_contact.setPhoneNumber(pN);
+
+	std::cout << "Enter the contact "<< BOLD "Darkest Secret" RESET << " :" << std::endl;
+	std::getline(std::cin, dS);
+	n_contact.check_input(dS);
+	n_contact.setDarkestSecret(dS);
+
+	std::cout << std::endl;
+	setContact(n_contact);
 }
 
-void PhoneBook::display_ct_info(PhoneBook *phonebook){
-	std::string	input;
-	int			number;
+void PhoneBook::display_ct_info(){
+	int		index;
+	bool	validInput = false;
 
-	if (phonebook->getNrContacts()){
-		(*phonebook).printContacts();
-		std::cout << "Please select the index corresponding to the specific contact\n";
-		std::getline(std::cin, input);
-		try {
-			number = atoi(input.c_str());
-		} 
-		catch (const std::invalid_argument& e) {
-			std::cout << "Invalid input. Please enter a valid integer." << std::endl;
+	if (getNrContacts()){
+		printContacts();
+		while (!validInput) {
+			validInput = true;
+			std::cout << std::endl << "Please select the index corresponding to the specific contact\n";
+			std::cin >> index;
+			if (std::cin.eof()) {
+				break ;
+			}
+			if (std::cin.fail()) {
+				validInput = false;
+				std::cerr << "Invalid input. Please enter a valid phone number." << std::endl;
+			}
+			if (!validInput)
+			{
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			else {
+				if (index < 0 || index > 7 || (size_t)index >= nr_contacts)
+				{
+					validInput = false;
+					std::cerr << "Invalid input. Please enter a valid index" << std::endl;
+					std::cout << std::endl;
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				}
+				else
+				{
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+					contacts[index].printContact();
+				}
 		}
-		if (number < 0 || number > 7 )
-			std::cout << "Invalid input. Please enter a valid index" << std::endl;
-		else
-			phonebook->printContact(number);
+		}
 	}
 	else
-		std::cout << BOLD("No contacts yet")<< std::endl;
+		std::cerr << BOLD "No contacts yet" RESET << std::endl;
 }

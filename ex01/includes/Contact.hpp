@@ -6,16 +6,21 @@
 # include "Colors.hpp"
 
 class Contact {
+
 	public:
-		int			index;
-		Contact(){}
-		Contact(std::string fN, std::string lN, std::string	nN,
-		std::string dS, int pH);
-		~Contact() {}
+		Contact();
+		~Contact();
 
 		void display() const;
 		void displayHeader() const;
 		void printInfo() const;
+		void setFirstName(const std::string& fName);
+		void setLastName(const std::string& lName);
+		void setNickName(const std::string& nName);
+		void setDarkestSecret(const std::string& dSecret);
+		void setPhoneNumber(const int pN);
+		void setIndex(const int ind);
+		void check_input(std::string& in);
 
 	private:
 		std::string	firstName;
@@ -23,5 +28,6 @@ class Contact {
 		std::string	nickName;
 		std::string	darkestSecret;
 		int 		phoneNumber;
+		int			index;
 };
 #endif
