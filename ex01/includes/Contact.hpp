@@ -13,7 +13,7 @@ class Contact {
 
 		void display() const;
 		void displayHeader() const;
-		void printInfo() const;
+		void printContact() const;
 		void setFirstName(const std::string& fName);
 		void setLastName(const std::string& lName);
 		void setNickName(const std::string& nName);

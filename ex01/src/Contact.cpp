@@ -25,11 +25,11 @@ void Contact::display() const{
 	<< "|" << std::setw(columnWidth) << truncatedFirstName
 	<< "|" << std::setw(columnWidth) << truncatedLastName
 	<< "|" << std::setw(columnWidth) << truncatedNickName
-	<< std::endl<< std::endl;
+	<< std::endl;
 }
 
 void Contact::displayHeader() const{
-	std::cout << std::right 
+	std::cout << std::endl << std::right 
 	<< BOLD "     Index" RESET << "|" 
 	<< BOLD "First Name" RESET << "|" 
 	<< BOLD " Last Name" RESET << "|" 
@@ -37,7 +37,8 @@ void Contact::displayHeader() const{
 }
 
 void Contact::printContact() const{
-	std::cout << BOLD "Index -\t\t\t" RESET << index 
+	std::cout << std::endl 
+	<< BOLD "Index -\t\t\t" RESET << index 
 	<< BOLD "\nFirst Name -\t\t" RESET << firstName 
 	<< BOLD "\nLast Name -\t\t" RESET << lastName 
 	<< BOLD "\nNick Name -\t\t" RESET << nickName 

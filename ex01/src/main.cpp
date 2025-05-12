@@ -8,9 +8,9 @@ int	main(){
 		std::string in;
 		
 		std::cout << "Enter one of the following commands:"<< std::endl;
-		std::cout << GREEN "<ADD> - Add new contact" RESET << std::endl;
-		std::cout << BLUE "<SEARCH> - Show the list of contacts" RESET << std::endl;
-		std::cout << RED "<EXIT> - Exit the progam" RESET << std::endl;
+		std::cout << GREEN "<" <<  BOLD "ADD" RESET << GREEN "> - Add new contact" RESET << std::endl;
+		std::cout << BLUE "<" << BOLD "SEARCH" RESET << BLUE "> - Show the list of contacts" RESET << std::endl;
+		std::cout << RED "<" << BOLD "EXIT" RESET << RED "> - Exit the progam" RESET << std::endl;
 		if (!std::getline(std::cin, in)){
                 std::cout << std::endl;
                 break ;
@@ -22,6 +22,6 @@ int	main(){
 		else if (in == "SEARCH")
 			phonebook.display_ct_info();
 		else
-			std::cerr << BOLD "				WRONG INPUT" RESET << std::endl;
+			std::cerr << YELLOW BOLD "				WRONG INPUT" RESET << std::endl << std::endl;
 	}
 }
