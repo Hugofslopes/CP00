@@ -7,7 +7,7 @@ int	main(){
 	{
 		std::string in;
 		
-		std::cout << "Enter one of the following commands:"<< std::endl;
+		std::cout << "Enter one of the following commands:" << std::endl;
 		std::cout << GREEN "<" <<  BOLD "ADD" RESET << GREEN "> - Add new contact" RESET << std::endl;
 		std::cout << BLUE "<" << BOLD "SEARCH" RESET << BLUE "> - Show the list of contacts" RESET << std::endl;
 		std::cout << RED "<" << BOLD "EXIT" RESET << RED "> - Exit the progam" RESET << std::endl;
