@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/13 17:59:05 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/05/13 17:59:06 by hfilipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "PhoneBook.hpp"
 
 int	main(){
@@ -18,9 +30,9 @@ int	main(){
 		if (in == "EXIT")
 			exit(0);
 		else if (in == "ADD")
-			phonebook.add_contacts();
+			phonebook.addContacts();
 		else if (in == "SEARCH")
-			phonebook.display_ct_info();
+			phonebook.displayCtInfo();
 		else
 			std::cerr << YELLOW BOLD "				WRONG INPUT" RESET << std::endl << std::endl;
 	}

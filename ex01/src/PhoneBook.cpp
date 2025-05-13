@@ -6,107 +6,144 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:44:50 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/12 16:20:03 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/13 18:13:04 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : count(0), nr_contacts(0) {
-        for (size_t i = 0; i < 8; i++) {
-            contacts[i] = Contact();
-            contacts[i].setIndex(-1);
-        }
+size_t PhoneBook::_count = 0;
+size_t PhoneBook::_nrContacts = 0;
+
+PhoneBook::PhoneBook() {
+	for (size_t i = 0; i < 8; i++) {
+		_contacts[i] = Contact();
+		_contacts[i].setIndex(-1);
     }
+}
 
 PhoneBook::~PhoneBook(){} 
 
 void PhoneBook::setContact(const Contact& contact) {
-	nr_contacts++;
-	if (count < 8){
-		contacts[count] = contact;
-		contacts[count].setIndex(count);
-		count++;
+	_nrContacts++;
+	if (_count < 8){
+		_contacts[_count] = contact;
+		_contacts[_count].setIndex(_count);
+		_count++;
 	}
 	else{
-		count = 0;
-		contacts[count] = contact;
-		contacts[count].setIndex(count);
-		count++;
+		_count = 0;
+		_contacts[_count] = contact;
+		_contacts[_count].setIndex(_count);
+		_count++;
 	}
 }
 
 void PhoneBook::printContacts() const {
-	size_t j = nr_contacts > 7 ? 8 : nr_contacts;
+	size_t j = _nrContacts > 7 ? 8 : _nrContacts;
 	for (size_t i = 0; i < j; i++)
 	{
 		if (i == 0)
-			contacts[i].displayHeader(); 
-		contacts[i].display(); 
+			_contacts[i].displayHeader(); 
+		_contacts[i].display(); 
 	}
 	std::cout << std::endl;
 }
 
 int PhoneBook::getNrContacts()const{
-	return(nr_contacts);
+	return(_nrContacts);
 }
 
-void PhoneBook::add_contacts(){
+bool check_str(std::string str)
+{
+	size_t i = 0; 
 	
+	while(str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+		i++;
+	if (str[i])
+		return (true);
+	return (false);
+}
+
+std::string get_string() {
+    std::string str;
+    while (true) {
+        if (!std::getline(std::cin, str)) {
+            std::cout << std::endl;
+            exit (1); 
+        }
+        if (check_str(str))
+			return(str);
+		else {
+			std::cerr << YELLOW BOLD << 
+			"Input cannot be empty or whitespace only. Please enter again:" 
+			<< RESET << std::endl << std::endl;
+		}
+    }
+}
+
+int getValidPN(){
+	bool validInput = false;
+	int pN;
+	
+	while (!validInput) {
+		std::cout << "Enter the contact " << BOLD "Phone Number" RESET << " :"<< std::endl;
+		std::cin >> pN;
+		if (std::cin.eof()) {
+			exit(1) ;
+		}
+		else if (std::cin.fail() || pN > 999999999 || pN < 111111111) {
+			validInput = false;
+			std::cerr << std::endl << YELLOW BOLD "Invalid input. Please enter a valid phone number." RESET 
+			<< std::endl << std::endl ;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		else {
+			validInput = true;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+	}
+	return (pN);
+}
+
+void PhoneBook::addContacts(){
 	Contact n_contact;
 	std::string fN, lN,nN, dS;
 	int pN;
-	bool validInput = false;
 
 	std::cout << std::endl << "Enter the contact " << BOLD "First Name" RESET << " :" << std::endl;
-	std::getline(std::cin, fN);
-	n_contact.check_input(fN);
+	fN = get_string();
+	n_contact.changeTabs(fN);
 	n_contact.setFirstName(fN);
 	std::cout << std::endl;;
 
 	std::cout << "Enter the contact " << BOLD "Last Name" RESET << " :" << std::endl;
-	std::getline(std::cin, lN);
-	n_contact.check_input(lN);
+	lN = get_string();
+	n_contact.changeTabs(lN);
 	n_contact.setLastName(lN);
 	std::cout << std::endl;;
 
 	std::cout << "Enter the contact "<< BOLD "Nick Name" RESET << " :" << std::endl;
-	std::getline(std::cin, nN);
-	n_contact.check_input(nN);
+	nN = get_string();
+	n_contact.changeTabs(nN);
 	n_contact.setNickName(nN);
 	std::cout << std::endl;;
 
-	while (!validInput) {
-        std::cout << "Enter the contact " << BOLD "Phone Number" RESET << " :"<< std::endl;
-        std::cin >> pN;
-		if (std::cin.eof()) {
-            break ;
-        }
-        else if (std::cin.fail() || pN > 999999999 || pN < 111111111) {
-			validInput = false;
-            std::cerr << std::endl << YELLOW BOLD "Invalid input. Please enter a valid phone number." RESET 
-			<< std::endl << std::endl ;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-		else {
-            validInput = true;
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
-    }
+	pN = getValidPN();
 	n_contact.setPhoneNumber(pN);
 	std::cout << std::endl;;
 
 	std::cout << "Enter the contact "<< BOLD "Darkest Secret" RESET << " :" << std::endl;
-	std::getline(std::cin, dS);
-	n_contact.check_input(dS);
+	dS = get_string();
+	n_contact.changeTabs(dS);
 	n_contact.setDarkestSecret(dS);
 
 	std::cout << std::endl;
 	setContact(n_contact);
 }
 
-void PhoneBook::display_ct_info(){
+void PhoneBook::displayCtInfo(){
 	int		index;
 	bool	validInput = false;
 
@@ -117,9 +154,9 @@ void PhoneBook::display_ct_info(){
 			std::cout << std::endl << "Please select the index corresponding to the specific contact"<< std::endl;
 			std::cin >> index;
 			if (std::cin.eof()) {
-				break ;
+				exit (1);
 			}
-			if (std::cin.fail() || index < 0 || index > 7 || (size_t)index >= nr_contacts) {
+			if (std::cin.fail() || index < 0 || index > 7 || (size_t)index >= _nrContacts) {
 				validInput = false;
 				std::cerr << std::endl << YELLOW BOLD "Invalid input. Please enter a valid phone number." RESET 
 				<< std::endl << std::endl;
@@ -131,11 +168,11 @@ void PhoneBook::display_ct_info(){
 			}
 			else {
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				contacts[index].printContact();
+				_contacts[index].printContact();
 			}
 		}
 		
 	}
 	else
-		std::cerr << BOLD "No contacts yet" RESET << std::endl;
+		std::cerr << std::endl << BOLD YELLOW "No contacts yet" RESET << std::endl << std::endl;
 }

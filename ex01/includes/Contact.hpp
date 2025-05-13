@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/13 17:59:22 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/05/13 17:59:22 by hfilipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
@@ -20,14 +32,14 @@ class Contact {
 		void setDarkestSecret(const std::string& dSecret);
 		void setPhoneNumber(const int pN);
 		void setIndex(const int ind);
-		void check_input(std::string& in);
+		void changeTabs(std::string& in);
 
 	private:
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickName;
-		std::string	darkestSecret;
-		int 		phoneNumber;
-		int			index;
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickName;
+		std::string	_darkestSecret;
+		int 		_phoneNumber;
+		int			_index;
 };
 #endif

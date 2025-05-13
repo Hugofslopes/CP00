@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/13 17:59:25 by hfilipe-          #+#    #+#             */
+/*   Updated: 2025/05/13 17:59:26 by hfilipe-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
@@ -15,12 +27,12 @@ class PhoneBook : public Contact {
         void    setContact(const Contact& contact);
         void    printContacts() const;
         int     getNrContacts()const;
-        void    add_contacts();
-        void    display_ct_info();
+        void    addContacts();
+        void    displayCtInfo();
     
     private:
-        Contact contacts[8];
-        size_t  count;
-        size_t  nr_contacts;
+        Contact         _contacts[8];
+        static size_t   _count;
+        static size_t   _nrContacts;
 };
 #endif
