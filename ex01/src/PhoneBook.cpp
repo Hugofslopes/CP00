@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 15:44:50 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/13 18:13:04 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:53:26 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ void PhoneBook::displayCtInfo(){
 			if (std::cin.eof()) {
 				exit (1);
 			}
-			if (std::cin.fail() || index < 0 || index > 7 || (size_t)index >= _nrContacts) {
+			if (std::cin.fail() || index < 0 || index > 7 ||  static_cast<size_t>(index) >= _nrContacts) {
 				validInput = false;
 				std::cerr << std::endl << YELLOW BOLD "Invalid input. Please enter a valid phone number." RESET 
 				<< std::endl << std::endl;

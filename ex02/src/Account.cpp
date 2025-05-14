@@ -6,7 +6,7 @@
 /*   By: hfilipe- <hfilipe-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 16:54:43 by hfilipe-          #+#    #+#             */
-/*   Updated: 2025/05/13 17:19:27 by hfilipe-         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:54:26 by hfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp(void) {
     std::time_t now = std::time(0);
-    std::tm* tm_ptr = std::localtime(&now);
+    std::tm* tmPtr = std::localtime(&now);
 
     char buffer[16];
-    std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", tm_ptr);
+    std::strftime(buffer, sizeof(buffer), "%Y%m%d_%H%M%S", tmPtr);
 
     std::cout << "[" << buffer << "] ";
 }
@@ -66,20 +66,20 @@ void Account::displayAccountsInfos(void) {
 }
 
 void Account::makeDeposit(int deposit) {
-    int p_amount = _amount;
+    int pAmount = _amount;
     _amount += deposit;
     _nbDeposits++;
     _totalNbDeposits++;
     _totalAmount += deposit;
 
     _displayTimestamp();
-    std::cout << GREEN "index:" << _accountIndex << ";p_amount:" << p_amount 
+    std::cout << GREEN "index:" << _accountIndex << ";p_amount:" << pAmount 
     << ";deposit:" << deposit << ";amount:" << _amount 
     << ";nb_deposits:" << _nbDeposits <<  RESET <<std::endl;
 }
 
 bool Account::makeWithdrawal(int withdrawal) {
-    int p_amount = _amount;
+    int pAmount = _amount;
     _displayTimestamp();
 
     if (withdrawal > _amount) {
@@ -93,7 +93,7 @@ bool Account::makeWithdrawal(int withdrawal) {
         _totalNbWithdrawals++;
         _totalAmount -= withdrawal;
 
-        std::cout << RED << "index:" << _accountIndex << ";p_amount:" << p_amount 
+        std::cout << RED << "index:" << _accountIndex << ";p_amount:" << pAmount 
         << ";withdrawal:" << withdrawal << ";amount:" << _amount 
         << ";nb_withdrawals:" << _nbWithdrawals << RESET << std::endl;
         return true;
